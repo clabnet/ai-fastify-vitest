@@ -40,7 +40,7 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5(vitest@3.0.5)
       prettier:
-        specifier: ^3.5.0
+        specifier: ^3.5.1
         version: 3.5.1
       tsx:
         specifier: ^4.19.2
