@@ -1,10 +1,10 @@
 // src/routes/users/index.ts
-import { FastifyInstance } from 'fastify';
+import { FastifyPluginAsync } from 'fastify';
 import { createUserSchema, updateUserSchema } from './schema';
 import { createUser, deleteUser, getUser, getUsers, updateUser } from './handler';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 
-export default async function userRoutes(fastify: FastifyInstance) {
+const userRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.post('/', {
     schema: {
       body: zodToJsonSchema(createUserSchema),
@@ -114,3 +114,5 @@ export default async function userRoutes(fastify: FastifyInstance) {
     handler: deleteUser,
   });
 }
+
+export default userRoutes;
