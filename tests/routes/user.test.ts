@@ -19,7 +19,7 @@ describe('User Routes', () => {
       method: 'POST',
       url: '/users',
       payload: {
-        name: 'John Doe',
+        name: 'Claudio Barca',
         email: 'john@example.com',
       },
     });
@@ -27,7 +27,7 @@ describe('User Routes', () => {
     expect(response.statusCode).toBe(201);
     const user = JSON.parse(response.payload);
     expect(user).toHaveProperty('id');
-    expect(user.name).toBe('John Doe');
+    expect(user.name).toBe('Claudio Barca');
     expect(user.email).toBe('john@example.com');
   });
 

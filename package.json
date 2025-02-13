@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "vitest run",
+    "test:ui": "vitest --ui --api 9527",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage"
   },
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^20.11.5",
     "@vitest/coverage-v8": "^1.2.1",
+    "@vitest/ui": "^3.0.5",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
