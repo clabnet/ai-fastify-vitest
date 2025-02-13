@@ -2,18 +2,19 @@
 import Fastify, { FastifyInstance } from 'fastify';
 import userRoutes from './routes/users';
 import swagger from './plugins/swagger';
-import autoload from './plugins/autoload';
+import healthRoutes from './routes/health';
 
 export function buildApp(): FastifyInstance {
   const app = Fastify({
     logger: true,
   });
 
-  // Register autoload plugin
-  app.register(autoload);
-
   // Register plugins
-  // app.register(swagger);
+  app.register(swagger);
+
+  // Register routes
+  app.register(userRoutes, { prefix: '/users' });
+  app.register(healthRoutes, { prefix: '/health' });
 
   return app;
 }
