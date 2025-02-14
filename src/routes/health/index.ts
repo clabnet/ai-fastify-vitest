@@ -1,5 +1,5 @@
 // Example of another route: src/routes/health/index.ts
-import { FastifyPluginAsync } from 'fastify';
+import { FastifyPluginAsync } from 'fastify'
 
 const healthRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', {
@@ -18,7 +18,7 @@ const healthRoutes: FastifyPluginAsync = async (fastify) => {
       status: 'ok',
       timestamp: new Date().toISOString()
     })
-  });
-};
+  })
+}
 
-export default healthRoutes;
+export default healthRoutes

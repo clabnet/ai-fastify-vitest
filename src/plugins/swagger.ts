@@ -1,7 +1,7 @@
 // src/plugins/swagger.ts
-import fp from 'fastify-plugin';
-import swagger from '@fastify/swagger';
-import swaggerUi from '@fastify/swagger-ui';
+import swagger from '@fastify/swagger'
+import swaggerUi from '@fastify/swagger-ui'
+import fp from 'fastify-plugin'
 
 export default fp(async (fastify) => {
   await fastify.register(swagger, {
@@ -10,11 +10,11 @@ export default fp(async (fastify) => {
         title: 'User API',
         description: 'User API documentation',
         version: '1.0.0'
-      },
+      }
     }
-  });
+  })
 
   await fastify.register(swaggerUi, {
-    routePrefix: '/swagger',
-  });
-});
+    routePrefix: '/swagger'
+  })
+})

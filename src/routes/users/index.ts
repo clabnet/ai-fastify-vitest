@@ -1,8 +1,15 @@
 // src/routes/users/index.ts
-import { FastifyPluginAsync } from 'fastify';
-import { createUserSchema, updateUserSchema } from './schema';
-import { createUser, deleteUser, getUser, getUsers, updateUser } from './handler';
-import { zodToJsonSchema } from 'zod-to-json-schema';
+import { FastifyPluginAsync } from 'fastify'
+import { zodToJsonSchema } from 'zod-to-json-schema'
+
+import {
+  createUser,
+  deleteUser,
+  getUser,
+  getUsers,
+  updateUser
+} from './handler'
+import { createUserSchema, updateUserSchema } from './schema'
 
 const userRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.post('/', {
@@ -15,14 +22,14 @@ const userRoutes: FastifyPluginAsync = async (fastify) => {
             id: { type: 'string' },
             name: { type: 'string' },
             email: { type: 'string' },
-            createdAt: { type: 'string', format: 'date-time' },
+            createdAt: { type: 'string', format: 'date-time' }
           },
           required: ['id', 'name', 'email', 'createdAt']
-        },
-      },
+        }
+      }
     },
-    handler: createUser,
-  });
+    handler: createUser
+  })
 
   fastify.get('/', {
     schema: {
@@ -35,15 +42,15 @@ const userRoutes: FastifyPluginAsync = async (fastify) => {
               id: { type: 'string' },
               name: { type: 'string' },
               email: { type: 'string' },
-              createdAt: { type: 'string', format: 'date-time' },
+              createdAt: { type: 'string', format: 'date-time' }
             },
             required: ['id', 'name', 'email', 'createdAt']
           }
         }
       }
     },
-    handler: getUsers,
-  });
+    handler: getUsers
+  })
 
   fastify.get('/:id', {
     schema: {
@@ -61,14 +68,14 @@ const userRoutes: FastifyPluginAsync = async (fastify) => {
             id: { type: 'string' },
             name: { type: 'string' },
             email: { type: 'string' },
-            createdAt: { type: 'string', format: 'date-time' },
+            createdAt: { type: 'string', format: 'date-time' }
           },
           required: ['id', 'name', 'email', 'createdAt']
         }
       }
     },
-    handler: getUser,
-  });
+    handler: getUser
+  })
 
   fastify.put('/:id', {
     schema: {
@@ -87,14 +94,14 @@ const userRoutes: FastifyPluginAsync = async (fastify) => {
             id: { type: 'string' },
             name: { type: 'string' },
             email: { type: 'string' },
-            createdAt: { type: 'string', format: 'date-time' },
+            createdAt: { type: 'string', format: 'date-time' }
           },
           required: ['id', 'name', 'email', 'createdAt']
         }
       }
     },
-    handler: updateUser,
-  });
+    handler: updateUser
+  })
 
   fastify.delete('/:id', {
     schema: {
@@ -111,8 +118,8 @@ const userRoutes: FastifyPluginAsync = async (fastify) => {
         }
       }
     },
-    handler: deleteUser,
-  });
+    handler: deleteUser
+  })
 }
 
-export default userRoutes;
+export default userRoutes
